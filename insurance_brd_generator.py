@@ -19,7 +19,9 @@ def get_chat_response(stored_procedure, api_key):
     brd_request = "Generate a Business Requirements Document for the following Insurance Stored Procedure:"
 
     # Combining the request phrase with the stored procedure input
-    full_message = brd_request + "\n" + stored_procedure
+    #full_message = brd_request + "\n" + stored_procedure 
+
+    full_message = brd_request + "\n" + stored_procedure 
 
     # Setting up the headers for the API request, including the authorization token
     headers = {
@@ -30,7 +32,9 @@ def get_chat_response(stored_procedure, api_key):
     # Preparing the data payload for the API request
     data = {
         "model": "gpt-3.5-turbo",  # Model identifier
-        "messages": [{"role": "user", "content": full_message}]
+        "messages": [{"role": "user", "content": full_message}],
+        "temperature": 0.3
+
     }
 
     # Making the POST request to the API and handling the response
@@ -69,12 +73,12 @@ def main():
     Main function to run the chatbot interface for generating a BRD.
     """
     # API key for OpenAI (Note: Securely manage the API key in production)
-    OPENAI_API_KEY = "API KEY Value"
+    OPENAI_API_KEY = "<API KEY VALUE"
 
     print("ChatGPT: Hi, I am a chatbot. I will be assisting you on generating a business requirement document using your stored procedure.")
     while True:
         # Capturing the user's stored procedure input
-        user_input = get_multiline_input("Please enter your insurance stored procedure (type 'END' on a new line when done):")
+        user_input = get_multiline_input("Please enter your insurance stored procedure (type 'END' on a new line when done):") #
         if user_input.lower() == 'exit':
             # Exiting the loop if the user types 'exit'
             break
