@@ -69,7 +69,7 @@ def main():
     Main function to run the chatbot interface for generating a BRD.
     """
     # API key for OpenAI (Note: Securely manage the API key in production)
-    OPENAI_API_KEY = "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"
+    OPENAI_API_KEY = "<Your API KEY VALUE>"
 
     print("ChatGPT: Hi, I am a chatbot. I will be assisting you on generating a business requirement document using your stored procedure.")
     while True:
